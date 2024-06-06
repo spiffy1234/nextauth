@@ -1,0 +1,37 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(76, 162, 202);
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.contact * {
+  padding: 0.3em 0.5em;
+}
+.contact h2 {
+  font-size: 200%;
+}
+.desAlign {
+  display: block;
+  margin-left: 2em;
+}
+.contact input[type="submit"],
+.contact input[type="reset"] {
+  border: 1px solid black;
+  width: 50%;
+  margin: 0.5em 0;
+  margin-left: 6em;
+}
+.firstname {
+  margin-right: 2em;
+}
+.lastname {
+  margin-right: 2em;
+}
+.password {
+  margin-right: 2em;
+}
+.confirmpassword {
+  margin-right: 3em;
+}

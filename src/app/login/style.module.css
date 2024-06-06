@@ -1,0 +1,21 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid;
+  height: 100vh;
+  background-color: skyblue;
+  gap: 1em;
+}
+.login > * {
+  padding: 0.7em;
+  width: 350px;
+}
+.login input[type="submit"] {
+  border: solid;
+}
+.login h2 {
+  font-size: 250%;
+  font-family: sans-serif;
+}

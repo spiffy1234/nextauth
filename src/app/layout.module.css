@@ -1,0 +1,11 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgb(211, 68, 116);
+    padding: 0.5em;
+  }
+  .nav li {
+    flex: 1;
+    display: block;
+  }
