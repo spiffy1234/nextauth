@@ -1,1 +1,1 @@
-# My auth app.
+# My auth application.
