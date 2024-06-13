@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     user.verifyTokenExpiry = undefined;
     await user.save();
 
-    return Response.json({ msg: "Email verified successful", success: true });
+    return Response.json({ msg: "successful", success: true });
   } catch (error: any) {
     return Response.json({ error: error.message }, { status: 500 });
   }

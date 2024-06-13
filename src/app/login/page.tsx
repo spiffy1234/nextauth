@@ -54,6 +54,7 @@ export default function LoginPage() {
         />
         <input type="submit" value="Login" />
         <Link href="/signup">Signup</Link>
+        <Link href="/forgotpassword">forgot password?</Link>
       </form>
       <Toaster />
     </>

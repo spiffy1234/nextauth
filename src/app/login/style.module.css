@@ -19,3 +19,10 @@
   font-size: 250%;
   font-family: sans-serif;
 }
+.login a {
+  text-decoration: underline;
+}
+.login a:hover {
+  text-decoration: none;
+  color: rgb(5, 52, 78);
+}

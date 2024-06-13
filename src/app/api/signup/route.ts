@@ -40,7 +40,7 @@ export async function POST(request: Request) {
       mobile,
       password: hashedPassword,
     });
-    console.log()
+    console.log();
 
     // Send verification email
     await sendMail({ email, emailType: "VERIFY", userId: newUser._id });

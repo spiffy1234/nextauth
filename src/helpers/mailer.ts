@@ -33,13 +33,14 @@ export async function sendMail({ email, emailType, userId }: any) {
       to: email,
       subject:
         emailType === "VERIFY" ? "Verify your email" : "Reset your email",
-      html: `<p> Click <a href="${
-        process.env.DOMAIN
-      }/verifyemail?token=${hashedToken}">here</a> 
-      to ${emailType === "VERIFY" ? "verify your email" : "reset your email"}
-      or copy and paste the below URL in the browser. <br> ${
-        process.env.DOMAIN
-      }/verifyemail?token=${hashedToken}
+      html:
+        emailType === "VERIFY"
+          ? `<p> Click <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}">here</a> 
+    to verify your email or copy and paste the below URL in the browser.
+     <br> ${process.env.DOMAIN}/verifyemail?token=${hashedToken}
+      </p>`
+          : `<p> Click <a href="${process.env.DOMAIN}/resetpassword?token=${hashedToken}">here</a> 
+      to reset your email or copy and paste the below URL in the browser. <br> ${process.env.DOMAIN}/resetpassword?token=${hashedToken}
       </p>`,
     };
 
