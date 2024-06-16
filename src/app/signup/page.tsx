@@ -4,6 +4,11 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import type { Metadata } from "next";
+
+const metadata: Metadata = {
+  title: "Signup Page - Spiffy App",
+};
 
 export default function Signup() {
   const [userInfo, setUserInfo] = useState({

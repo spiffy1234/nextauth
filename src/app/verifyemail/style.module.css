@@ -1,0 +1,11 @@
+.verifyPage {
+  background-color: salmon;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.verifyPage h2{
+    font-size: 200%;
+    font-family: sans-serif;
+}

@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import styles from "./style.module.css";
+import type { Metadata } from "next";
+
+const metadata: Metadata = {
+  title: "Reset Page - Spiffy App",
+};
 
 export default function ResetPassword() {
   let [token, setToken] = useState("");

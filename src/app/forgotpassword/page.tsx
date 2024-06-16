@@ -1,7 +1,11 @@
-"use client";
 import React, { useState } from "react";
 import axios from "axios";
 import styles from "./style.module.css";
+import type { Metadata } from "next";
+
+const metadata: Metadata = {
+  title: "Forgot password - Spiffy App",
+};
 
 export default function ForgotPassword() {
   let [email, setEmail] = useState("");
