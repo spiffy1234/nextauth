@@ -1,13 +1,9 @@
-"use server";
+"use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import type { Metadata } from "next";
 import styles from "./style.module.css";
-
-const metadata: Metadata = {
-  title: "VerifyEmail Page - Spiffy App",
-};
 
 export default function VerifyEmailPage() {
   let [token, setToken] = useState("");
