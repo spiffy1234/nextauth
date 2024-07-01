@@ -5,13 +5,17 @@
 }
 
 .body h2 {
-  background-color: rgb(133, 77, 185);
+  background-color: rgb(236, 51, 175);
   text-align: center;
   font-size: 300%;
 }
 .body button {
-  background-color: aqua;
+  background-color: rgb(28, 245, 245);
   height: 10vh;
   text-align: center;
   width: 100%;
+}
+.body p {
+  background-color: aliceblue;
+  height: 100vh;
 }

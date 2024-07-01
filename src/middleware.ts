@@ -31,5 +31,6 @@ export const config = {
     "/forgotpassword",
     "/resetpassword",
     "/verifyemail",
+    "/posts",
   ],
 };

@@ -1,0 +1,15 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: skyblue;
+  height: 100vh;
+}
+.list h1 {
+  font-size: 200%;
+  font-family: sans-serif;
+}
+.list Link:hover {
+  color: rgb(21, 230, 56);
+}

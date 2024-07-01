@@ -2,11 +2,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styles from "./style.module.css";
-import type { Metadata } from "next";
-
-const metadata: Metadata = {
-  title: "Forgot password - Spiffy App",
-};
 
 export default function ForgotPassword() {
   let [email, setEmail] = useState("");
@@ -22,6 +17,7 @@ export default function ForgotPassword() {
         }
       } catch (error: any) {
         console.log("Something went wrong!");
+        alert("Oops No email found!");
       }
     }
   }

@@ -1,0 +1,33 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  background-color: rgb(247, 158, 50);
+  padding: 1em;
+}
+.post div h2 {
+  font-size: 200%;
+}
+.post button {
+  background-color: green;
+  border: solid;
+  gap: 3em;
+}
+.createPost {
+  gap: 2em;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(223, 180, 215);
+}
+.createPost button {
+  background-color: greenyellow;
+  height: 5vh;
+  width: 20%;
+  margin: 2em;
+}
+.createPost h2 {
+  font-size: 200%;
+  font-family: sans-serif;
+  margin: 0.5em;
+  text-decoration: underline;
+}

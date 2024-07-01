@@ -24,6 +24,12 @@ export default function RootLayout({
           <li>
             <a href="/signup">Signup Page</a>
           </li>
+          <li>
+            <a href="/profile">Profile Page</a>
+          </li>
+          <li>
+            <a href="/posts">Post Page</a>
+          </li>
         </ul>
         {children}
       </body>

@@ -5,11 +5,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./styles.module.css";
-import type { Metadata } from "next";
-
-const metadata: Metadata = {
-  title: "Profile Page - Spiffy App",
-};
 
 export default function Profile() {
   const [firstname, setFirstname] = useState("");
@@ -46,9 +41,10 @@ export default function Profile() {
 
   return (
     <div className={styles.body}>
-      <h2>Welcome {firstname}</h2>
-      <Link href={`/profile/${firstname}`}>User Details</Link>
+      <h2>Welcome {firstname} to our Vlog</h2>
       <button onClick={logout}>Logout</button>
+      <Link href={`/profile/${firstname}`}>User Details</Link>
+      <p></p>
       <Toaster />
     </div>
   );
