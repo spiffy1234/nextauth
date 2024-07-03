@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 import Link from "next/link";
 
-
 export default function LoginPage() {
   let [loginInfo, setLoginInfo] = useState({
     email: "",
@@ -23,7 +22,7 @@ export default function LoginPage() {
 
       if (res.data.success) {
         toast.success("Login Sucessfully");
-        router.push("/profile");
+        router.push("/");
       }
     } catch (error: any) {
       console.error("Something went wrong!");

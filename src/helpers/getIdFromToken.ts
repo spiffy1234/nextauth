@@ -1,13 +1,10 @@
 import jwt from "jsonwebtoken";
-import { cookies } from "next/headers";
+import { NextRequest } from "next/server";
 
-export async function getIdFromToken() {
+export async function getIdFromToken(request: NextRequest) {
   try {
-    const token: any = await cookies().get("token")?.value;
-    const decodedToken: any = await jwt.verify(
-      token,
-      process.env.TOKEN_SECRET!
-    );
+    const token: any = request.cookies.get("token")?.value;
+    const decodedToken: any = jwt.verify(token, process.env.TOKEN_SECRET!);
     return decodedToken.id;
   } catch (error: any) {
     throw new Error(error.message);

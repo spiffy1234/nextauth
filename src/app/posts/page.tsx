@@ -90,85 +90,93 @@ export default function PostApp() {
   }
 
   return (
-    <div>    
-     {!editing ? (
-        <form className={styles.createPost} onSubmit={createPost}>
-          <h2>Create</h2>
-          <div>
-            <label>
-              Title:
-              <input
-                type="text"
-                value={post.title}
-                onChange={(e) => setPost({ ...post, title: e.target.value })}
-                name="title"
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              Body:
-              <textarea
-                value={post.body}
-                onChange={(e) => setPost({ ...post, body: e.target.value })}
-                name="body"
-              />
-            </label>
-          </div>
-          <button type="submit">Create Post</button>
-        </form>
-      ) : (
-        <form className={styles.createPost} onSubmit={updatePost}>
-          <h2>Update</h2>
-          <div>
-            <label>
-              Title:
-              <input
-                type="text"
-                value={post.title}
-                onChange={(e) => setPost({ ...post, title: e.target.value })}
-                name="title"
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              Body:
-              <textarea
-                value={post.body}
-                onChange={(e) => setPost({ ...post, body: e.target.value })}
-                name="body"
-              />
-            </label>
-          </div>
-          <button type="submit">Update Post</button>
-        </form>
-      )}
-      <ul className={styles.post}>
-        {postLists.map((post) => (
-          <li key={post._id}>
+    <div className={styles.post}>
+      <div className={styles.form}>
+        {!editing ? (
+          <form onSubmit={createPost}>
+            <h2>Create</h2>
             <div>
-              <Link href={`/posts/${post._id}`}>
-                <h2>{post.title}</h2>
-              </Link>
-              <button 
-                onClick={() => {
-                  editPost(post);
-                }}
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => {
-                  deletePost(post._id);
-                }}
-              >
-                Delete
-              </button>
+              Title:
+              <input
+                type="text"
+                value={post.title}
+                onChange={(e) => setPost({ ...post, title: e.target.value })}
+                name="title"
+              />
             </div>
-          </li>
-        ))}
-      </ul>
+            <div>
+              Body:
+              <textarea
+                rows={8}
+                cols={50}
+                value={post.body}
+                onChange={(e) => setPost({ ...post, body: e.target.value })}
+                name="body"
+              />
+            </div>
+            <button type="submit">Create Post</button>
+          </form>
+        ) : (
+          <form onSubmit={updatePost}>
+            <h2>Update</h2>
+
+            <div>
+              Title:
+              <input
+                type="text"
+                value={post.title}
+                onChange={(e) => setPost({ ...post, title: e.target.value })}
+                name="title"
+              />
+            </div>
+
+            <div>
+              Body:
+              <textarea
+                rows={8}
+                cols={50}
+                value={post.body}
+                onChange={(e) => setPost({ ...post, body: e.target.value })}
+                name="body"
+              />
+            </div>
+            <button type="submit">Update Post</button>
+          </form>
+        )}
+      </div>
+      <table className={styles.list}>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Operation</th>
+          </tr>
+        </thead>
+        <tbody>
+          {postLists.map((post) => (
+            <tr key={post._id}>
+              <td>
+                <Link href={`/posts/${post._id}`}>{post.title}</Link>
+              </td>
+              <td>
+                <button
+                  onClick={() => {
+                    editPost(post);
+                  }}
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => {
+                    deletePost(post._id);
+                  }}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
       <Toaster />
     </div>
   );
