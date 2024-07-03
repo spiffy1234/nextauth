@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
   try {
     const { title, body } = await request.json();
 
-    //Creating new Post
+    //Creating new Pos
     const newPost = await Post.create({ title, body });
 
     return Response.json(
