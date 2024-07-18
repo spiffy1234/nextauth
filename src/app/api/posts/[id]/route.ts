@@ -1,8 +1,8 @@
 import { connect } from "@/src/DBConfiguration/dbConfig";
 import Post from "@/src/models/postModel";
 import { NextRequest } from "next/server";
-import toast from "react-hot-toast";
-
+import User from "@/src/models/userModel";
+import { getIdFromToken } from "@/src/helpers/getIdFromToken";
 connect();
 
 //Reading a post of specified id
@@ -17,8 +17,11 @@ export async function GET(
       return Response.json({ error: "No post with the id" }, { status: 400 });
     }
 
+    const user = await User.findById(post.userId);
+    const author = `${user.firstname} ${user.lastname}`;
+
     return Response.json(
-      { post, msg: " posts found", success: true },
+      { post, author, msg: " posts found", success: true },
       { status: 200 }
     );
   } catch (error: any) {
@@ -67,7 +70,40 @@ export async function DELETE(
       { deletedPost, msg: "Deleted successfully", success: true },
       { status: 200 }
     );
-    
+  } catch (error: any) {
+    return Response.json({ error: error.message }, { status: 500 });
+  }
+}
+
+// Publish post
+export async function PATCH(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const id = params.id;
+    const userId = await getIdFromToken(request);
+    const post = await Post.findById(id).select("userId");
+
+    if (post.userId == userId) {
+      const post = await Post.findById(id);
+
+      if (!post) {
+        return Response.json({ error: "No post found" }, { status: 400 });
+      }
+
+      post.isPublished = true;
+      const publishedPost = await post.save();
+
+      if (!publishedPost) {
+        return Response.json({ error: "Not published " }, { status: 400 });
+      }
+
+      return Response.json(
+        { publishedPost, msg: "Publish", success: true },
+        { status: 200 }
+      );
+    }
   } catch (error: any) {
     return Response.json({ error: error.message }, { status: 500 });
   }

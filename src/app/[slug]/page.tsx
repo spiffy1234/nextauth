@@ -1,37 +1,37 @@
 "use client";
-import axios from "axios";
-import Link from "next/link";
 import { useState, useEffect } from "react";
-import styles from "./id.module.css";
+import axios from "axios";
 
-export default function PostDetails({ params }: { params: { id: string } }) {
+export default function Slug({ params }: { params: { slug: string } }) {
   const [post, setPost] = useState({
     title: "",
     body: "",
   });
+
   const [author, setAuthor] = useState("");
 
   useEffect(() => {
-    getPost(params.id);
+    getPost(params.slug);
   }, []);
 
-  async function getPost(id: string) {
+  async function getPost(slug: string) {
     try {
-      let res = await axios.get(`/api/posts/${id}`);
+      const res = await axios.get(`api/${slug}`);
+
       if (res.data.success) {
         setPost(res.data.post);
         setAuthor(res.data.author);
       }
     } catch (error: any) {
-      console.log("Wrong");
+      console.log("something went wrong");
     }
   }
+
   return (
-    <div className={styles.list}>
+    <div>
       <h1>{post.title}</h1>
       <p>{post.body}</p>
       <p>{author}</p>
-      <Link href="/posts">Explore other posts</Link>
     </div>
   );
 }

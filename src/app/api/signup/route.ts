@@ -30,7 +30,6 @@ export async function POST(request: Request) {
     const salt = await bcryptjs.genSalt();
     const hashedPassword = await bcryptjs.hash(password, salt);
 
-    console.log(data);
     //create and save new user
 
     let newUser = await User.create({
@@ -40,7 +39,6 @@ export async function POST(request: Request) {
       mobile,
       password: hashedPassword,
     });
-    console.log();
 
     // Send verification email
     await sendMail({ email, emailType: "VERIFY", userId: newUser._id });

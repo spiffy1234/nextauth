@@ -1,18 +1,16 @@
 .home h1 {
-  background-color: rgb(163, 228, 58);
+  background-color: rgb(123, 128, 115);
   font-size: 300%;
   text-align: center;
   font-family: sans-serif;
   padding: 0.5em;
 }
-.home p {
-  text-decoration: none;
-  height: 100vh;
-  background-color: rgb(247, 243, 48);
-  padding: 3em;
-  font-size: 200%;
+
+.home div {
+  background-color: rgb(211, 211, 195);
+  padding: 1em;
+  color:blue
 }
-.home p:hover {
-  color: rgb(17, 116, 182);
+.home a:hover {
   text-decoration: underline;
 }

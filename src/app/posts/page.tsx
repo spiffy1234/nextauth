@@ -9,6 +9,7 @@ type PostType = {
   _id: string;
   title: string;
   body: string;
+  isPublished: boolean;
 };
 
 export default function PostApp() {
@@ -16,6 +17,7 @@ export default function PostApp() {
     _id: "",
     title: "",
     body: "",
+    isPublished: false,
   });
 
   const [postLists, setPostLists] = useState<Array<PostType>>([]);
@@ -42,7 +44,7 @@ export default function PostApp() {
       if (post.title && post.body) {
         const res = await axios.post("/api/posts", post);
         if (res.data.success) {
-          setPost({ _id: "", title: "", body: "" });
+          setPost({ _id: "", title: "", body: "", isPublished: false });
           await getAllPosts();
           toast.success(res.data.msg);
         }
@@ -68,6 +70,7 @@ export default function PostApp() {
           _id: "",
           title: "",
           body: "",
+          isPublished: false,
         });
         setEditing(false);
         await getAllPosts();
@@ -86,6 +89,19 @@ export default function PostApp() {
       }
     } catch (error: any) {
       toast.error("Cannot deleted this post");
+    }
+  }
+
+  async function publishPost(id: string) {
+    try {
+      const res = await axios.patch(`/api/posts/${id}`);
+
+      if (res.data.success) {
+        toast.success(res.data.msg);
+        await getAllPosts();
+      }
+    } catch (error: any) {
+      toast.error("Something went wrong");
     }
   }
 
@@ -158,6 +174,14 @@ export default function PostApp() {
                 <Link href={`/posts/${post._id}`}>{post.title}</Link>
               </td>
               <td>
+                <button
+                  onClick={() => publishPost(post._id)}
+                  disabled={post.isPublished || false}
+                  className={post.isPublished ? styles.published : ""}
+                >
+                  {post.isPublished ? "Published" : "Publish Now"}
+                </button>
+
                 <button
                   onClick={() => {
                     editPost(post);

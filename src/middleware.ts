@@ -8,12 +8,14 @@ export function middleware(request: NextRequest) {
     path === "/signup" ||
     path === "/forgotpassword" ||
     path === "/resetpassword" ||
-    path === "/verifyemail";
+    path === "/verifyemail" ||
+    path === "/" ||
+    path === "/[slug]";
 
   const token = cookies().get("token")?.value;
   // console.log(token, "....");
 
-  if (isPublicPath && token) {
+  if ((path === "/login" || path === "/signup") && token) {
     return Response.redirect(new URL("/", request.nextUrl!));
   }
 
@@ -32,5 +34,6 @@ export const config = {
     "/resetpassword",
     "/verifyemail",
     "/posts",
+    "/[slug]",
   ],
 };

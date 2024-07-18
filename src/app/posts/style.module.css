@@ -29,7 +29,6 @@
 .form textarea {
   margin-left: 1em;
   padding: 0.2em;
-  color: aliceblue;
   border: 1px black solid;
 }
 .form button {
@@ -50,10 +49,13 @@
 }
 .list button {
   margin: 0 0.3em;
-  background-color: #09b50f;
+  background-color: #b9d4ba;
   padding: 0.2em 0.6em;
   border: 0.5px solid;
 }
 .list tr td {
   font-size: 120%;
+}
+.published {
+  color: #09b50f;
 }

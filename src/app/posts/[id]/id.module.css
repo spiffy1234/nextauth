@@ -1,15 +1,25 @@
 .list {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
   background-color: skyblue;
   height: 100vh;
+  gap: 1em;
+  padding: 1em;
 }
 .list h1 {
   font-size: 200%;
   font-family: sans-serif;
 }
-.list Link:hover {
-  color: rgb(21, 230, 56);
+.list a {
+  color: rgb(19, 16, 201);
+  
+}
+.list a:hover {
+  text-decoration: underline;
+}
+
+.list p {
+  line-height: 1.7;
+  font-size: 110%;
 }

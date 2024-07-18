@@ -32,7 +32,7 @@ export default function Profile() {
       let res = await axios.get("/api/logout");
       if (res.data.success) {
         toast("Logged out");
-        router.push("/login");
+        router.push("/");
       }
     } catch (error: any) {
       toast.error(error.message);
@@ -44,7 +44,9 @@ export default function Profile() {
       <h2>Welcome {firstname} to our Vlog</h2>
       <button onClick={logout}>Logout</button>
       <Link href={`/profile/${firstname}`}>User Details</Link>
-      <p></p>
+      <p>
+        <Link href="/posts">Manage blog posts</Link>
+      </p>
       <Toaster />
     </div>
   );

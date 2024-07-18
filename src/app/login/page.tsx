@@ -22,7 +22,7 @@ export default function LoginPage() {
 
       if (res.data.success) {
         toast.success("Login Sucessfully");
-        router.push("/");
+        router.push("/profile");
       }
     } catch (error: any) {
       console.error("Something went wrong!");
@@ -35,6 +35,7 @@ export default function LoginPage() {
       <form onSubmit={loginHandler} className={styles.login}>
         <h2>User Login</h2>
         <input
+          className="py-10 mx-2"
           type="text"
           placeholder="Email"
           name="email"
