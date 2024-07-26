@@ -3,6 +3,7 @@ import Post from "@/src/models/postModel";
 import { NextRequest } from "next/server";
 import User from "@/src/models/userModel";
 import { getIdFromToken } from "@/src/helpers/getIdFromToken";
+import { generateSlug } from "@/src/helpers/generateSlug";
 connect();
 
 //Reading a post of specified id
@@ -38,7 +39,8 @@ export async function PUT(
     const { title, body } = await request.json();
     const id = params.id;
 
-    const updatedPost = await Post.findByIdAndUpdate(id, { title, body });
+    const slug = await generateSlug(title);
+    const updatedPost = await Post.findByIdAndUpdate(id, { title, body, slug });
 
     if (!updatedPost) {
       return Response.json({ error: "Not updated" }, { status: 400 });
