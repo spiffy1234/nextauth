@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <div className={styles.home}>
-      <h1>Blog</h1>
+      <h1>Vlog</h1>
       <div>
         {listStore.map((post) => (
           <div key={post._id}>
