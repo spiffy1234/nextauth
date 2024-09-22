@@ -46,12 +46,13 @@ export async function sendMail({ email, emailType, userId }: any) {
 
     const mailResponse = await transport.sendMail(mailOptions);
 
-    console.log(mailResponse, "______________from mailer");
 
     return mailResponse;
   } catch (error: any) {
     throw new Error(error.message);
+    
   }
 }
 
+//mailtrap
 //https://mailtrap.io/blog/nodemailer-gmail/
