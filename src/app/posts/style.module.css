@@ -1,4 +1,4 @@
-.post {
+/* .post {
   display: flex;
   height: 100vh;
   gap: 1em;
@@ -58,4 +58,138 @@
 }
 .published {
   color: #09b50f;
+} */
+
+.post {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1em;
+  padding: 2em 4vw;
+  background-color: #e8f0fe; /* subtle blue background */
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Form section */
+.form {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1.5em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.form h2 {
+  font-size: 1.8em;
+  font-family: sans-serif;
+  text-decoration: underline;
+  margin-bottom: 1em;
+  color: #1a237e; /* dark blue */
+}
+
+.form input[type="text"],
+.form textarea {
+  width: 100%;
+  padding: 0.5em;
+  border: 1px solid #90caf9;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1em;
+  resize: vertical;
+  background-color: #f1f8ff; /* light blueish */
+}
+
+.form input[type="text"]:focus,
+.form textarea:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+
+.form button {
+  width: fit-content;
+  background-color: #1976d2; /* vibrant blue */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  margin-top: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #0d47a1;
+}
+
+/* List section */
+.list {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 1em;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+.list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.list th {
+  background-color: #1976d2;
+  color: #fff;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.list td,
+.list th {
+  border: 1px solid #90caf9;
+  padding: 0.5em;
+}
+
+.list tr:nth-child(even) {
+  background-color: #e3f2fd;
+}
+
+.list button {
+  background-color: #64b5f6; /* lighter blue */
+  border: none;
+  border-radius: 4px;
+  padding: 0.3em 0.6em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.list button:hover {
+  background-color: #42a5f5;
+}
+
+.list tr td {
+  font-size: 1em;
+}
+
+.published {
+  color: #388e3c; /* green for published */
+  font-weight: bold;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .form h2 {
+    font-size: 1.5em;
+  }
+
+  .form button,
+  .list button {
+    font-size: 0.9em;
+    padding: 0.4em 0.8em;
+  }
+
+  .list tr td {
+    font-size: 0.95em;
+  }
 }

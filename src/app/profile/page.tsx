@@ -43,6 +43,7 @@ export default function Profile() {
     <div className={styles.body}>
       <h2>Welcome {firstname} to our Vlog</h2>
       <button onClick={logout}>Logout</button>
+      
       <Link href={`/profile/${firstname}`}>User Details</Link>
       <p>
         <Link href="/posts">Manage blog posts</Link>

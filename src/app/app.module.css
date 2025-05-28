@@ -1,4 +1,4 @@
-.home h1 {
+/* .home h1 {
   background-color: rgb(123, 128, 115);
   font-size: 300%;
   text-align: center;
@@ -13,4 +13,56 @@
 }
 .home a:hover {
   text-decoration: underline;
+} */
+
+/* Container heading style */
+.home h1 {
+  background-color: rgb(123, 128, 115);
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  padding: 1em;
+  border-radius: 8px;
+  margin-bottom: 1em;
+}
+
+/* Content div style */
+.home div {
+  background-color: #f2f2f2;
+  color: #083d77;
+  padding: 1.2em;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect for div */
+.home div:hover {
+  transform: translateY(-3px);
+}
+
+/* Links inside .home styling */
+.home a {
+  color: #2b6cb0;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Link hover style */
+.home a:hover {
+  text-decoration: underline;
+  color: #1a202c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .home h1 {
+    font-size: 2rem;
+    padding: 0.8em;
+  }
+
+  .home div {
+    padding: 1em;
+  }
 }
